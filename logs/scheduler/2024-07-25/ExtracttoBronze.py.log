@@ -1,0 +1,14 @@
+[2024-07-25T16:54:25.622+0000] {processor.py:161} INFO - Started process (PID=649) to work on /opt/airflow/dags/ExtracttoBronze.py
+[2024-07-25T16:54:25.624+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ExtracttoBronze.py for tasks to queue
+[2024-07-25T16:54:25.626+0000] {logging_mixin.py:188} INFO - [2024-07-25T16:54:25.626+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/ExtracttoBronze.py
+[2024-07-25T16:54:26.351+0000] {processor.py:840} INFO - DAG(s) 'extractAPItoBronze' retrieved from /opt/airflow/dags/ExtracttoBronze.py
+[2024-07-25T16:54:26.511+0000] {logging_mixin.py:188} INFO - [2024-07-25T16:54:26.510+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-07-25T16:54:26.540+0000] {logging_mixin.py:188} INFO - [2024-07-25T16:54:26.540+0000] {dag.py:3954} INFO - Setting next_dagrun for extractAPItoBronze to 2024-07-26 00:00:00+00:00, run_after=2024-07-27 00:00:00+00:00
+[2024-07-25T16:54:26.569+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ExtracttoBronze.py took 0.955 seconds
+[2024-07-25T16:54:57.047+0000] {processor.py:161} INFO - Started process (PID=663) to work on /opt/airflow/dags/ExtracttoBronze.py
+[2024-07-25T16:54:57.048+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/ExtracttoBronze.py for tasks to queue
+[2024-07-25T16:54:57.051+0000] {logging_mixin.py:188} INFO - [2024-07-25T16:54:57.051+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/ExtracttoBronze.py
+[2024-07-25T16:54:57.678+0000] {processor.py:840} INFO - DAG(s) 'extractAPItoBronze' retrieved from /opt/airflow/dags/ExtracttoBronze.py
+[2024-07-25T16:54:57.777+0000] {logging_mixin.py:188} INFO - [2024-07-25T16:54:57.776+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2024-07-25T16:54:57.799+0000] {logging_mixin.py:188} INFO - [2024-07-25T16:54:57.799+0000] {dag.py:3954} INFO - Setting next_dagrun for extractAPItoBronze to 2024-07-26 00:00:00+00:00, run_after=2024-07-27 00:00:00+00:00
+[2024-07-25T16:54:57.824+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/ExtracttoBronze.py took 0.784 seconds

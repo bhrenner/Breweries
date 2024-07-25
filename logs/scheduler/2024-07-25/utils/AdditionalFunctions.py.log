@@ -1,0 +1,15 @@
+[2024-07-25T16:54:18.732+0000] {processor.py:161} INFO - Started process (PID=638) to work on /opt/airflow/dags/utils/AdditionalFunctions.py
+[2024-07-25T16:54:18.733+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/utils/AdditionalFunctions.py for tasks to queue
+[2024-07-25T16:54:18.736+0000] {logging_mixin.py:188} INFO - [2024-07-25T16:54:18.735+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/utils/AdditionalFunctions.py
+[2024-07-25T16:54:19.350+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/utils/AdditionalFunctions.py
+[2024-07-25T16:54:19.369+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/utils/AdditionalFunctions.py took 0.645 seconds
+[2024-07-25T16:54:49.902+0000] {processor.py:161} INFO - Started process (PID=652) to work on /opt/airflow/dags/utils/AdditionalFunctions.py
+[2024-07-25T16:54:49.903+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/utils/AdditionalFunctions.py for tasks to queue
+[2024-07-25T16:54:49.906+0000] {logging_mixin.py:188} INFO - [2024-07-25T16:54:49.905+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/utils/AdditionalFunctions.py
+[2024-07-25T16:54:50.467+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/utils/AdditionalFunctions.py
+[2024-07-25T16:54:50.482+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/utils/AdditionalFunctions.py took 0.588 seconds
+[2024-07-25T16:55:21.200+0000] {processor.py:161} INFO - Started process (PID=666) to work on /opt/airflow/dags/utils/AdditionalFunctions.py
+[2024-07-25T16:55:21.202+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/utils/AdditionalFunctions.py for tasks to queue
+[2024-07-25T16:55:21.206+0000] {logging_mixin.py:188} INFO - [2024-07-25T16:55:21.205+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/utils/AdditionalFunctions.py
+[2024-07-25T16:55:21.923+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/utils/AdditionalFunctions.py
+[2024-07-25T16:55:21.941+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/utils/AdditionalFunctions.py took 0.753 seconds
