@@ -12,60 +12,30 @@ import os
 
 
 def json_to_dataframe(ti):
-    # file_path = ti.xcom_pull(dag_id=['extractAPItoBronze'],task_ids=['processing_json'])
-
+    # Retrieve the file path from the Airflow variable
     file_path = Variable.get("path_bronze")
 
-    print(f"Path recebido: {file_path}")
+    # Print the received path for debugging
+    print(f"Received Path: {file_path}")
 
+    # Check if the file path exists
     if file_path and os.path.exists(file_path):
-
+        # Open and load the JSON data from the file
         with open(file_path, 'r') as f:
             data = json.load(f)
 
-        print(f"Dados json: {data}")
-        lista_dicionarios = [v['0']
-                             for k, v in data.items()]  # list(data.values())
-        print(f"Lista Dicionario: {lista_dicionarios}")
+        # Print the JSON data for debugging
+        print(f"JSON Data: {data}")
 
+        # Extract the list of dictionaries from the JSON data
+        lista_dicionarios = [v['0'] for k, v in data.items()]
+        print(f"Dictionary List: {lista_dicionarios}")
+
+        # Convert the list of dictionaries into a pandas DataFrame
         df_list = pd.DataFrame(lista_dicionarios)
-        print(f"Lista DF {df_list}")
+        print(f"DataFrame List: {df_list}")
 
-        # df = json_df['0']
-
-        """
-                print("\nDataFrame normalizado:")
-                print(df)
-                print("Tipos de dados das colunas:")
-                print(df.dtypes)
-                print("\nColunas do DataFrame:")
-                print(df.columns)
-
-                # Explodir a coluna com listas de dicionários
-                df_exploded = df.explode(0)
-                print("\nExplodido:")
-                print(df_exploded)
-                print("Tipos de dados das colunas:")
-                print(df_exploded.dtypes)
-
-                # Normalizar a coluna com listas de dicionários
-                df_normalized = pd.json_normalize(df_exploded[0])
-                print("\nDataFrame normalizado:")
-                print(df_normalized)
-
-                # Adicionar outras colunas ao DataFrame normalizado, se necessário
-                df_final = pd.concat(
-                    [df_exploded.drop(columns=[0]), df_normalized], axis=1)
-                print("\nDataFrame final:")
-                print(df_final)
-
-            # df_nomalized = json_normalize(data=df[0])
-
-                df_row = df_exploded.iloc[:].to_dict()
-                print("\nDataFrame ROW:")
-                print(df_row)
-        """
-
+        # Convert the DataFrame columns to the appropriate data types
         df = df_list.astype({
             'id': 'string',
             'name': 'string',
@@ -85,25 +55,39 @@ def json_to_dataframe(ti):
             'street': 'string'
         })
 
+        # Process the DataFrame date
         df = AdditionalFunctions.process_date(df)
+
+        # Clean the DataFrame columns
         df_final = AdditionalFunctions.clean_columns(df)
 
-        print("\nDataFrame Final:")
+        # Print the final DataFrame for debugging
+        print("\nFinal DataFrame:")
         print(df_final)
+
+        # Define the path and filename for the parquet file
         path = "datalake/silver/"
         file_name = "breweries.parquet"
 
+        # Combine the path and filename
         file_path = path + file_name
 
-        AdditionalFunctions.ensure_directory_exists(path+file_name)
+        # Ensure the directory exists
+        AdditionalFunctions.ensure_directory_exists(file_path)
 
+        # Save the DataFrame as a parquet file with partitions and compression
         df.to_parquet(
-            file_path, partition_cols=['process_date', 'country', 'state', 'city'], compression='gzip')
+            file_path, partition_cols=['process_date', 'country', 'state', 'city'], compression='gzip'
+        )
 
+        # Set the Airflow variable with the path of the parquet file
         Variable.set("path_silver", file_path)
+
+        # Return the path of the parquet file
         return file_path
 
     else:
+        # Raise an error if the file is not found
         raise FileNotFoundError(f"Bronze File Not Found: {file_path}")
 
 
